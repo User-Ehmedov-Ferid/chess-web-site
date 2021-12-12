@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Academy</title>
+    <link rel="stylesheet" href="{{url_for('static' , filename='bootstrap.css')}}">
+    
+    <link rel="stylesheet" href="{{url_for('static' , filename='Contact.css')}}">
+    <link rel="stylesheet" href="{{url_for('static' , filename='font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static' , filename='all.min.css')}}">
+</head>
+<body>
+    <header  style="background-color: #031221; "> 
+        <div class="container-fluid   ">
+          <div class="row  " >
+            <div class="text-light col-6"><i class="fas fa-map-marker-alt" ></i>Azərbaycan, 32, Bakı, Yasamal, AZ1009</div>
+            <div class="text-light col-6"><i class="fas fa-phone-square-alt"></i>(+994 12) 597-13-47, (+994 12) 596-13-48</div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="row">
+            <nav class="navbar navbar-expand-md    " >
+          
+          
+              <div class="container-fluid w-100  ">
+                <a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                   <i class="fas fa-bars" style="font-size: 30px;"></i>  
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0  " >
+                    <li class="nav-item ">
+                      <a class="nav-link text-light " aria-current="page" href="{{url_for('home')}}">Home</a>
+                    </li>
+                    
+                    
+                    
+                    <li class="nav-item">
+                      <a class="nav-link text-light " href="{{url_for('contact')}}" >Contact</a>
+                  </li>
+                  </ul>
+                  
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+    </header>
+    <main  >
+      {% block content %}
+      <div class="contact">
+          <h3>Contact us</h3>
+      <!-- Just here i use "url_for" to call the function get_contact.
+               This function return the html code of our contact page-->
+          <form action="{{ url_for('get_contact') }}" method=post>
+              <div>
+                  <!-- name forms -->
+                  <p>
+                      {{ form.name.label }} <br>
+                      {{ form.name(placeholder='Your name') }}
+                  </p>
+                  <!-- email forms -->
+                  <p>
+                      {{ form.email.label }} <br>
+                      {{ form.email(placeholder='Your e-mail ...') }}
+                  </p>
+                  <!-- Subject of your request -->
+                  <p>
+                      {{ form.subject.label }}<br>
+                      {{form.subject(placeholder='Your subject ...')}}
+                  </p>
+                  <!-- Content of your request -->
+                  <p>
+                      {{ form.message.label }}<br>
+                      {{ form.message(placeholder='write your request ...') }}
+                  </p>
+                  <!-- Submit button -->
+                  <p>
+                      {{ form.submit }}
+                  </p>
+              </div>
+          </form>
+      </div>
+      {% endblock %}
+       
+    </main>
+
+    <footer style="padding-bottom: 5px; padding-top: 2px; background-color: #7aa3e2; " >
+      <p style="color: rgba(245, 245, 245, 0.842); font-size: 20px; text-align: center; margin-top: 5px; "><i class="fab fa-instagram" style="margin-right: 8px;"><a href="http://"></a></i><i class="fab fa-facebook-square" style="margin-right: 8px;"><a href="http://"></a></i>Chess Academy</p>
+    </footer>
+</body>
+<script src="{{url_for('static' , filename= 'bootstrap.js')}}"></script>
+<script src="{{url_for('static' , filename= 'jquery-3.6.0.min')}}"></script>
+<script src="https://kit.fontawesome.com/f5594e1c4d.js" crossorigin="anonymous"></script>
+</html>
